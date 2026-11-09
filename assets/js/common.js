@@ -479,6 +479,10 @@ $(function () {
         onY(y);
         bindMobileOverlay();
 
+        setTimeout(function () {
+            $('.main-header').addClass('is-ready');
+        }, 0);
+
         // allow hide after first settle
         setTimeout(function () {
             window.__headerBoot = false;
