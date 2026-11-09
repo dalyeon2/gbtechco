@@ -216,6 +216,20 @@ function initScroll(callback) {
 }
 
 /* ====== Header ===== */
+function syncHeaderLogo(style, isAtTop) {
+    const $logo = $('.header-left .logo img');
+    if (!$logo.length) return;
+
+    const defaultSrc = $logo.data('logo-default') || $logo.data('original') || $logo.attr('src');
+    const transparentSrc = $logo.data('logo-transparent') || defaultSrc;
+    const shouldUseLightLogo = style === 'transparent' || style === 'transparent-dark' || (document.body.dataset.page !== 'main' && isAtTop);
+    const nextSrc = shouldUseLightLogo ? transparentSrc : defaultSrc;
+
+    if ($logo.attr('src') !== nextSrc) {
+        $logo.attr('src', nextSrc);
+    }
+}
+
 function initSectionHeaderStyles() {
     if (headerStyleObserver) {
         headerStyleObserver.disconnect();
@@ -244,6 +258,7 @@ function initSectionHeaderStyles() {
     const applyStyle = (style) => {
         if (currentStyle === style) return;
         currentStyle = style;
+
         header.classList.remove('is-transparent', 'is-white', 'is-transparent-dark');
         if (style === 'transparent') {
             header.classList.add('is-transparent');
@@ -254,15 +269,8 @@ function initSectionHeaderStyles() {
         } else if (!style) {
             currentStyle = null;
         }
-        const $logo = $('.header-left .logo img');
-        if (!$logo.length) return;
-        const defaultSrc = $logo.data('logo-default') || $logo.data('original') || $logo.attr('src');
-        const transparentSrc = $logo.data('logo-transparent');
-        if (style === 'transparent' && transparentSrc) {
-            $logo.attr('src', transparentSrc);
-        } else {
-            $logo.attr('src', defaultSrc);
-        }
+
+        syncHeaderLogo(style, false);
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -367,19 +375,19 @@ $(function () {
 
         // subpages: keep header transparent at top, white after scroll
         if (!IS_MAIN) {
-            if (atTop) {
+            const nextStyle = atTop ? 'transparent' : 'white';
+            if (!$h.hasClass('is-transparent') && nextStyle === 'transparent') {
                 $h.addClass('is-transparent').removeClass('is-white');
-            } else {
+            }
+            if (!$h.hasClass('is-white') && nextStyle === 'white') {
                 $h.removeClass('is-transparent').addClass('is-white');
             }
-
-            // swap logo for contrast on subpages
-            var $logo = $('.header-left .logo img');
-            if ($logo.length) {
-                var defaultSrc = $logo.data('logo-default') || $logo.data('original') || $logo.attr('src');
-                var transparentSrc = $logo.data('logo-transparent') || defaultSrc;
-                $logo.attr('src', atTop ? transparentSrc : defaultSrc);
+            if (($h.hasClass('is-transparent') && nextStyle === 'white') || ($h.hasClass('is-white') && nextStyle === 'transparent')) {
+                $h.toggleClass('is-transparent', nextStyle === 'transparent');
+                $h.toggleClass('is-white', nextStyle === 'white');
             }
+
+            syncHeaderLogo(nextStyle, atTop);
         }
     }
 
