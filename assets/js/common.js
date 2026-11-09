@@ -14,6 +14,7 @@ window.__snapOff = true;
 var headerHideEnabled = !(document.body && document.body.dataset.page === 'main');
 var headerStickyZones = null;
 var headerStyleObserver = null;
+window.__headerManagedByScroll = false;
 
 function getSiteRoot() {
     const path = (window.location.pathname || '/').replace(/\\/g, '/');
@@ -256,6 +257,7 @@ function initSectionHeaderStyles() {
     let currentStyle = null;
 
     const applyStyle = (style) => {
+        if (window.__headerManagedByScroll) return;
         if (currentStyle === style) return;
         currentStyle = style;
 
@@ -430,10 +432,14 @@ $(function () {
     function onY(y) {
         if (ticking) return;
         ticking = true;
+        window.__headerManagedByScroll = true;
         requestAnimationFrame(function () {
             setState(y);
             setHide(y);
             ticking = false;
+            setTimeout(function () {
+                window.__headerManagedByScroll = false;
+            }, 0);
         });
     }
 
