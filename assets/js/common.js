@@ -45,10 +45,18 @@ function normalizeRelativeUrl(value, siteRoot) {
 function normalizeComponentPaths() {
     const siteRoot = getSiteRoot();
     const scope = document.querySelectorAll('#header-container, #footer-container, #subtop-container, #cta-container');
+    const dataAttrs = ['data-original', 'data-logo-default', 'data-logo-transparent', 'data-scroll-src'];
 
     scope.forEach((container) => {
-        container.querySelectorAll('[src], [href]').forEach((element) => {
+        container.querySelectorAll('[src], [href], [data-original], [data-logo-default], [data-logo-transparent], [data-scroll-src]').forEach((element) => {
             ['src', 'href'].forEach((attr) => {
+                const value = element.getAttribute(attr);
+                if (!value) return;
+                if (/^(?:[a-z]+:|\/\/|#|data:|mailto:|tel:)/i.test(value) || value.startsWith('javascript:')) return;
+                element.setAttribute(attr, normalizeRelativeUrl(value, siteRoot));
+            });
+
+            dataAttrs.forEach((attr) => {
                 const value = element.getAttribute(attr);
                 if (!value) return;
                 if (/^(?:[a-z]+:|\/\/|#|data:|mailto:|tel:)/i.test(value) || value.startsWith('javascript:')) return;
@@ -225,8 +233,8 @@ function syncHeaderLogo(style, isAtTop) {
     if (!$logo.length) return;
 
     const shouldUseLightLogo = style === 'transparent' || style === 'transparent-dark' || (document.body.dataset.page !== 'main' && isAtTop);
-    const normalSrc = $logo.data('logo-default') || '../../assets/img/common/logo.png';
-    const lightSrc = $logo.data('logo-transparent') || '../../assets/img/common/logo-white.png';
+    const normalSrc = normalizeRelativeUrl($logo.attr('data-logo-default') || $logo.data('logo-default') || '../../assets/img/common/logo.png', getSiteRoot());
+    const lightSrc = normalizeRelativeUrl($logo.attr('data-logo-transparent') || $logo.data('logo-transparent') || '../../assets/img/common/logo-white.png', getSiteRoot());
     const targetSrc = shouldUseLightLogo ? lightSrc : normalSrc;
 
     if ($logo.attr('src') !== targetSrc) {
