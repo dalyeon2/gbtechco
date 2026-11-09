@@ -218,17 +218,11 @@ function initScroll(callback) {
 
 /* ====== Header ===== */
 function syncHeaderLogo(style, isAtTop) {
-    const $logo = $('.header-left .logo img');
-    if (!$logo.length) return;
+    const $header = $('.main-header');
+    if (!$header.length) return;
 
-    const defaultSrc = $logo.data('logo-default') || $logo.data('original') || $logo.attr('src');
-    const transparentSrc = $logo.data('logo-transparent') || defaultSrc;
     const shouldUseLightLogo = style === 'transparent' || style === 'transparent-dark' || (document.body.dataset.page !== 'main' && isAtTop);
-    const nextSrc = shouldUseLightLogo ? transparentSrc : defaultSrc;
-
-    if ($logo.attr('src') !== nextSrc) {
-        $logo.attr('src', nextSrc);
-    }
+    $header.toggleClass('is-logo-light', !!shouldUseLightLogo);
 }
 
 function initSectionHeaderStyles() {
@@ -478,10 +472,6 @@ $(function () {
 
         onY(y);
         bindMobileOverlay();
-
-        setTimeout(function () {
-            $('.main-header').addClass('is-ready');
-        }, 0);
 
         // allow hide after first settle
         setTimeout(function () {
