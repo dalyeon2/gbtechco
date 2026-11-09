@@ -1,0 +1,55 @@
+/* 
+---------------------------------------------
+                Button
+--------------------------------------------- 
+*/
+/* 1 */
+
+.prev-btn,
+.next-btn {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(176, 181, 188, 0.4);
+    border: none;
+    border-radius: 26px;
+    backdrop-filter: blur(24px);
+    cursor: pointer;
+    z-index: 2;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background: var(--primary);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+    transform: scale(1.05);
+}
+
+.prev-btn:hover {
+    transform: translateX(-2px);
+}
+
+.next-btn:hover {
+    transform: translateX(2px);
+}
+
+.prev-btn .arrow,
+.next-btn .arrow {
+    display: inline-block;
+    width: 11px;
+    height: 18px;
+    background-color: white;
+    mask: var(--icon-arrow) no-repeat center/contain;
+    -webkit-mask: var(--icon-arrow) no-repeat center/contain;
+    transition: transform 0.2s ease;
+}
+
+.next-btn .arrow {
+    transform: scaleX(-1);
+}

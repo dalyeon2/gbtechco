@@ -1,0 +1,289 @@
+/* 
+---------------------------------------------
+                Footer
+--------------------------------------------- 
+*/
+.site-footer {
+    position: relative;
+    margin-top: -70px;
+    padding: 60px 75px;
+    background: var(--black-900);
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    color: white;
+    z-index: 2;
+}
+
+.site-footer .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.site-footer .left {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer .title {
+    font-size: var(--font-base);
+    font-weight: 600;
+    line-height: 25.6px;
+}
+
+.site-footer .infoWrap {
+    margin-top: 10px; 
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.site-footer .info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: var(--font-xs);
+    line-height: 18px;
+}
+
+.site-footer .infoName {
+    font-weight: 500;
+    color: white;
+}
+
+.site-footer .infoText {
+    color: var(--white-80);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.site-footer .line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.site-footer .key {
+    color: var(--white-60);
+    font-weight: 400;
+}
+
+.site-footer .val {
+    color: var(--white-80);
+    font-weight: 400;
+    transition: 0.6s ease;
+}
+
+.site-footer .val:hover {
+    color: white;
+}
+
+.site-footer .note {
+    margin-top: 30px; 
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 15px;
+    color: var(--white-60);
+}
+
+.site-footer .right {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 75px;
+}
+
+.site-footer .nav {
+    display: inline-flex;
+    gap: 40px;
+}
+
+.site-footer .nav a {
+    font-size: var(--font-md);
+    font-weight: 600;
+    line-height: 28.8px;
+    color: white;
+}
+
+.site-footer .nav a:hover {
+    opacity: 0.8;
+}
+
+.site-footer .logo img {
+    display: block;
+    max-width: 131px;
+    height: auto;
+}
+
+@media (max-width: 1440px) {
+    .site-footer {
+        padding: 54px 60px;
+        border-top-left-radius: 70px;
+        border-top-right-radius: 70px;
+    }
+
+    .site-footer .footer-inner {
+        gap: 34px;
+    }
+
+    .site-footer .nav {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .site-footer {
+        padding: 48px 40px;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+
+    .site-footer .footer-inner {
+        gap: 28px;
+        align-items: flex-start;
+    }
+
+    .site-footer .nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 24px;
+        row-gap: 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .site-footer {
+        padding: 60px 50px 42px;
+    }
+
+    .site-footer .footer-inner {
+        gap: 24px;
+    }
+
+    .site-footer .infoWrap {
+        gap: 22px;
+    }
+
+    .site-footer .info {
+        min-width: 0;
+    }
+
+    .site-footer .nav {
+        gap: 20px;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .site-footer .nav a {
+        font-size: var(--font-base);
+    } 
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 50px 30px 32px;
+    }
+
+    .site-footer .footer-inner {
+        gap: 22px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .site-footer .footer-top {
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .site-footer .footer-top .nav {
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        text-align: right;
+    }
+
+    .site-footer .title {
+        font-size: 15px;
+    }
+
+    .site-footer .infoWrap {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .site-footer .right {
+        order: 1;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+    }
+
+    .site-footer .logo {
+        order: 1;
+        flex-shrink: 0;
+    }
+
+    .site-footer .nav {
+        order: 2;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        justify-content: end;
+        column-gap: 14px;
+        row-gap: 8px;
+    }
+
+    .site-footer .logo img {
+        max-width: 118px;
+    }
+
+    .site-footer .left {
+        order: 2;
+        width: 100%;
+    }
+
+    .site-footer .nav a {
+        font-size: var(--font-sm);
+    } 
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 40px 30px 32px;
+    }
+
+    .site-footer .footer-inner {
+        gap: 18px;
+    }
+
+    .site-footer .footer-top {
+        gap: 14px;
+    }
+
+    .site-footer .infoWrap {
+        gap: 12px;
+    }
+
+    .site-footer .info {
+        min-width: 0;
+        gap: 4px;
+        line-height: 17px;
+    }
+
+    .site-footer .right {
+        gap: 10px;
+    }
+
+    .site-footer .nav {
+        column-gap: 10px;
+        row-gap: 6px;
+    }
+
+    .site-footer .logo img {
+        max-width: 108px;
+    }
+}

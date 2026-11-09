@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icons/favicon.svg" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+    
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/pages/sub02.css?v=260113">
+    <title>Poultry | Genebiotech</title>
+</head>
+
+<body data-title="Poultry" data-category="Products" 
+    data-current="Poultry" data-bg="../assets/img/bg/bg-product-poultry.jpg">
+
+    <div id="header-container"></div>
+
+    <div data-scroll-container>
+        <div data-scroll-section>
+
+            <div id="subtop-container"></div>
+
+            <main class="subpage-content">
+                <!-- s: section 1 -->
+                <section class="cont1" aria-labelledby="cont1-title">
+                    <div class="container">
+                        <div class="left">
+                            <h2 id="cont1-title" class="title-md">Products for
+                                <span class="emphasis">Poultry</span>
+                            </h2>
+                            <p class="count">Total 4</p>
+                        </div>
+
+                        <div class="right">
+                            <ul class="list">
+                                <li class="card">
+                                    <div class="info">
+                                        <div class="thumb">
+                                            <img src="../assets/img/products/chip01.png" alt="">
+                                        </div>
+                                        <div class="text">
+                                            <p class="name">Artvill</p>
+                                            <p class="desc">Natural Plant Extract Additive</p>
+                                        </div>
+                                    </div>
+                                    <a href="../assets/files/Artvill.pdf" class="btn">
+                                        <span class="btntext">View Details</span>
+                                        <i class="icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li class="card">
+                                    <div class="info">
+                                        <div class="thumb">
+                                            <img src="../assets/img/products/chip02.png" alt="">
+                                        </div>
+                                        <div class="text">
+                                            <p class="name">PepSoyGen</p>
+                                            <p class="desc">Fermented Soybean Meal</p>
+                                        </div>
+                                    </div>
+                                    <a href="../assets/files/PSG(PepSoyGen).pdf" class="btn">
+                                        <span class="btntext">View Details</span>
+                                        <i class="icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li class="card">
+                                    <div class="info">
+                                        <div class="thumb">
+                                            <img src="../assets/img/products/chip03.png" alt="">
+                                        </div>
+                                        <div class="text">
+                                            <p class="name">Natufermen</p>
+                                            <p class="desc">Multi-strain Probiotics for Gut Health</p>
+                                        </div>
+                                    </div>
+                                    <a href="../assets/files/Natufermen.pdf" class="btn">
+                                        <span class="btntext">View Details</span>
+                                        <i class="icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+
+                                <li class="card">
+                                    <div class="info">
+                                        <div class="thumb">
+                                            <img src="../assets/img/products/chip04.png" alt="">
+                                        </div>
+                                        <div class="text">
+                                            <p class="name">Enervance</p>
+                                            <p class="desc">Multi-Enzyme</p>
+                                        </div>
+                                    </div>
+                                    <a href="../assets/files/Enervance.pdf" class="btn">
+                                        <span class="btntext">View Details</span>
+                                        <i class="icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="cta-container"></div>
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <div class="productpopup" aria-hidden="true">
+        <div class="back" aria-hidden="true"></div>
+        <div class="panel" role="dialog" aria-modal="true" aria-labelledby="productpopuptitle">
+            <div class="head">
+                <div class="info">
+                    <img class="pic" src="" alt="">
+                    <div class="text">
+                        <p class="name" id="productpopuptitle"></p>
+                        <p class="desc"></p>
+                    </div>
+                </div>
+                <button class="close" type="button" aria-label="Close"></button>
+            </div>
+            <div class="body">
+                <div class="frame" aria-live="polite"></div>
+            </div>
+            <div class="foot">
+                <a class="action" href="#" target="_blank" rel="noopener">
+                    Download PDF
+                    <i class="icon" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to Top"></button>
+
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Locomotive Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/pages/sub02.js?v=260113"></script>
+</body>
+
+</html>

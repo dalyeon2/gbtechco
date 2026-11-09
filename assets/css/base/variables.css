@@ -1,0 +1,67 @@
+/* 
+---------------------------------------------
+                  Variabls
+--------------------------------------------- 
+*/
+:root {
+  /* Font Sizes */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-base: 16px;
+  --font-md: 18px;
+  --font-lg: 20px;
+  --font-xl: 22px;
+  --font-2xl: 24px;
+  --font-3xl: 26px;
+  --font-4xl: 28px;
+  --font-body32: 32px;
+  --font-body38: 38px;
+  --font-body42: 42px;
+  --font-body46: 46px;
+  --font-title52: 52px;
+  --font-title54: 54px;
+  --font-title62: 62px;
+  --font-title68: 68px;
+  --font-title80: 80px;
+  --font-title84: 84px;
+
+  /* Point Colors */
+  --primary: #ED8437;
+  --blue-deep: #004F81;
+  --teal: #009393;
+  --blue-dark: #1D2088;
+
+  /* Blue Gray */
+  --bluegray-100: #EEF5FA;
+  --bluegray-200: #DDE9F1;
+  --bluegray-300: #D5DFE5;
+  --bluegray-400: #CAD7DE;
+  --bluegray-500: #C1CFD9;
+  --bluegray-600: #ADBFCC;
+
+  --black: #1D1D1D;
+  --black-900: #363A40;
+  --black-800: #4C5057;
+  --black-700: #7B8087;
+  --black-600: #B0B5BC;
+  --black-500: #D0D4DA;
+  --black-400: #DFE2E6;
+  --black-300: #EAECEF;
+  --black-200: #F2F3F5;
+  --black-100: #F8F9FA;
+
+  --white: #FFFFFF;
+  --white-100: rgba(255, 255, 255, 1);
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-10: rgba(255, 255, 255, 0.1);
+
+  --container-width: 1680px;
+
+  --icon-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='18' viewBox='0 0 11 18' fill='none'><path d='M9.5 16.5L1.5 8.97214L9.5 1.5' stroke='white' stroke-width='3' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  --icon-down: url("data:image/svg+xml,%3Csvg%20width='18'%20height='16'%20viewBox='0%200%2018%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M16.75%2010.2695V12.1772C16.75%2013.5992%2015.6937%2014.7495%2014.388%2014.7495H3.112C1.8063%2014.7495%200.75%2013.5992%200.75%2012.1772V10.2695'%20stroke='%23000'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cpath%20d='M12.75%207.4707L8.74854%2011.3907L4.75%207.4707'%20stroke='%23000'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cpath%20d='M8.75%2011.39V0.75'%20stroke='%23000'%20stroke-width='1.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+
+}

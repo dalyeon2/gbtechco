@@ -1,0 +1,17 @@
+/* 
+---------------------------------------------
+                Typography
+--------------------------------------------- 
+*/
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--black);
+}
+p {
+    font-size: var(--font-base);
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}

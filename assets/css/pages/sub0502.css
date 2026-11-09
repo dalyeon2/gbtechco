@@ -1,0 +1,260 @@
+/*
+---------------------------------------------
+                Sub 0302
+---------------------------------------------
+*/
+body {
+    background: var(--black-200);
+}
+
+/* cont1 */
+.cont1 .title-md {
+    white-space: pre-line;
+}
+
+.cont1 .banner {
+    margin-top: 40px;
+}
+
+.cont1 .banner img {
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+}
+
+.cont1 .layout {
+    margin-top: 80px;
+    display: flex;
+}
+
+.cont1 .left {
+    flex: 1;
+}
+
+.cont1 .right {
+    flex: 3;
+}
+
+.cont1 .value {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.cont1 .value .num {
+    color: var(--blue-deep);
+    font-size: 78px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 93.6px;
+}
+
+.cont1 .value .text {
+    padding-left: 15px;
+    color: var(--blue-deep);
+    font-size: var(--font-2xl);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 28.8px;
+}
+
+.cont1 .brand {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 30px;
+}
+
+.cont1 .card {
+    height: 180px;
+    padding: 27px 16px 18px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    justify-items: center;
+    gap: 14px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid var(--black-500);
+    box-sizing: border-box;
+    transition: transform .22s ease, box-shadow .25s ease, border-color .2s ease;
+}
+
+.cont1 .card img {
+    display: block;
+    max-height: 97px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+}
+
+.cont1 .card .name {
+    color: var(--black-700);
+    font-size: var(--font-sm);
+    line-height: 1.4;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.cont1 .card:hover {
+    transform: translateY(-6px);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 1440px) {
+    .cont1 .card {
+        height: auto;
+    }
+}
+
+@media (max-width: 1280px) {
+    .cont1 .banner {
+        margin-top: 30px;
+    }
+
+    .cont1 .layout {
+        margin-top: 60px;
+        gap: 24px;
+    }
+
+    .cont1 .right {
+        flex: 4;
+    }
+
+    .cont1 .value .num {
+        font-size: 64px;
+        line-height: 1.1;
+    }
+
+    .cont1 .value .text {
+        font-size: var(--font-xl);
+    }
+
+    .cont1 .brand {
+        gap: 30px 24px;
+    }
+
+    .cont1 .card {
+        gap: 12px;
+    }
+
+    .cont1 .card img {
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cont1 .title-md {
+        white-space: normal;
+        word-break: keep-all;
+        line-height: 1.5;
+    }
+
+    .cont1 .layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .cont1 .brand {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 22px;
+    }
+
+    .cont1 .card {
+        padding: 22px 12px;
+        gap: 12px;
+    }
+
+    .cont1 .card img {
+        max-height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cont1 .title-md {
+        line-height: 1.4;
+    }
+
+    .cont1 .banner {
+        margin-top: 24px;
+    }
+
+    .cont1 .banner img {
+        min-height: 220px;
+        border-radius: 24px;
+    }
+
+    .cont1 .layout {
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .cont1 .value {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .cont1 .value .num {
+        font-size: 54px;
+    }
+
+    .cont1 .value .text {
+        padding-left: 0;
+        font-size: var(--font-lg);
+    }
+
+    .cont1 .brand {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+    }
+
+    .cont1 .card {
+        gap: 10px;
+    }
+
+    .cont1 .card img {
+        max-height: 72px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cont1 .title-md {
+        line-height: 1.3;
+    }
+
+    .cont1 .layout {
+        margin-top: 32px;
+        gap: 16px;
+    }
+
+    .cont1 .banner img {
+        min-height: 200px;
+        border-radius: 20px;
+    }
+
+    .cont1 .value .num {
+        font-size: 44px;
+    }
+
+    .cont1 .value .text {
+        font-size: var(--font-base);
+    }
+
+    .cont1 .brand {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cont1 .card {
+        padding: 18px 12px;
+        border-radius: 14px;
+    }
+}

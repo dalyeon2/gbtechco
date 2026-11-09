@@ -1,0 +1,288 @@
+/*
+---------------------------------------------
+                Sub 0302
+---------------------------------------------
+*/
+/* cont1 */
+.cont1 .title-md {
+    white-space: pre-line;
+}
+
+.cont1 .value {
+    margin-top: 80px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    color: var(--primary);
+}
+
+.cont1 .value .num {
+    font-size: 78px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 93.6px;
+}
+
+.cont1 .value .text {
+    padding-left: 15px;
+    font-size: var(--font-2xl);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 28.8px;
+}
+
+.cont1 .mapArea {
+    margin-top: 40px;
+    height: 912px;
+    position: relative;
+    background: transparent;
+}
+
+.cont1 .mapArea::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: -100vh;
+    background: url("../../img/partnerships/map-bg.png") center / cover no-repeat;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.cont1 .mapLayers {
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+    z-index: 0;
+}
+
+.cont1 .mapLayers img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1680px;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1680 / 790;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.cont1 .mapLayers img:nth-child(1) {
+    z-index: 1;
+}
+
+.cont1 .mapLayers img:nth-child(2) {
+    z-index: 2;
+}
+
+.cont1 .mapLayers img:nth-child(3) {
+    z-index: 4;
+    pointer-events: none;
+}
+
+.cont1 .mapLayers .map-name {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: auto;
+}
+
+.cont1 .mapLayers .map-name-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 6;
+    pointer-events: auto;
+}
+
+.cont1 .mapLayers .map-name-svg * {
+    pointer-events: visiblePainted;
+}
+
+.cont1 .mapLayers .map-name-svg g,
+.cont1 .mapLayers .map-name-svg foreignObject,
+.cont1 .mapLayers .map-name-svg image {
+    transition: transform .2s ease;
+    transform-origin: center;
+    transform-box: fill-box;
+    cursor: pointer;
+}
+
+.cont1 .mapLayers .map-name-svg g:hover,
+.cont1 .mapLayers .map-name-svg foreignObject:hover,
+.cont1 .mapLayers .map-name-svg image:hover {
+    transform: scale(1.2);
+    filter: none;
+}
+
+.cont1 .mapArea .container {
+    padding-top: 0;
+    position: relative;
+}
+
+.cont1 .mapHead {
+    position: absolute;
+    top: -40px;
+    z-index: 3;
+}
+
+@media (max-width: 1280px) {
+    .cont1 .value {
+        margin-top: 50px;
+    }
+
+    .cont1 .value .num {
+        font-size: 64px;
+        line-height: 1.1;
+    }
+
+    .cont1 .value .text {
+        font-size: var(--font-xl);
+    }
+}
+
+@media (max-width: 1024px) {
+    .cont1 .title-md {
+        white-space: normal;
+        word-break: keep-all;
+        line-height: 1.5;
+    }
+
+    .cont1 .mapArea {
+        --map-width: 200vw;
+        --map-ratio: 790 / 1680;
+        height: clamp(360px, calc(var(--map-width) * var(--map-ratio)), 760px);
+        overflow: hidden;
+    }
+
+    .cont1 .mapArea::before {
+        bottom: 0;
+    }
+    
+    .cont1 .mapLayers {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #b5b5b5 #e5e5e5;
+        scrollbar-gutter: stable both-edges;
+        min-width: 100%;
+    }
+
+    .cont1 .mapLayers::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    .cont1 .mapLayers::-webkit-scrollbar-track {
+        background: #e5e5e5;
+        border-radius: 999px;
+    }
+
+    .cont1 .mapLayers::-webkit-scrollbar-thumb {
+        background: #b5b5b5;
+        border-radius: 999px;
+    }
+
+    .cont1 .mapLayers img,
+    .cont1 .mapLayers .map-name,
+    .cont1 .mapLayers .map-name-svg {
+        position: absolute;
+        width: var(--map-width);
+        height: calc(var(--map-width) * var(--map-ratio));
+        max-width: none;
+        max-height: none;
+        aspect-ratio: 1680 / 790;
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .cont1 .title-md {
+        line-height: 1.4;
+    }
+
+    .cont1 .value {
+        margin-top: 30px;
+    }
+
+    .cont1 .value {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    .cont1 .value .num {
+        font-size: 54px;
+    }
+
+    .cont1 .value .text {
+        padding-left: 0;
+        font-size: var(--font-lg);
+    }
+
+    .cont1 .mapArea {
+        --map-width: 180vw;
+    }
+
+    .cont1 .mapLayers {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .cont1 .mapLayers img,
+    .cont1 .mapLayers .map-name,
+    .cont1 .mapLayers .map-name-svg {
+        width: var(--map-width);
+        height: calc(var(--map-width) * (790 / 1680));
+    }
+}
+
+@media (max-width: 480px) {
+    .cont1 .title-md {
+        line-height: 1.3;
+    }
+
+    .cont1 .value .num {
+        font-size: 44px;
+    }
+
+    .cont1 .value .text {
+        font-size: var(--font-base);
+    }
+
+    .cont1 .mapArea {
+        --map-width: 260vw;
+    }
+
+    .cont1 .mapLayers {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .cont1 .mapLayers img,
+    .cont1 .mapLayers .map-name,
+    .cont1 .mapLayers .map-name-svg {
+        width: var(--map-width);
+        height: calc(var(--map-width) * (790 / 1680));
+    }
+}

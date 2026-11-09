@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icons/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <!-- Locomotive Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
+    
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/pages/sub0601.css">
+    <title>Contact us | Genebiotech</title>
+</head>
+
+<body data-title="Contact us" data-current="Contact us" data-bg="../assets/img/bg/bg-contact.jpg">
+
+    <div id="header-container"></div>
+
+    <div data-scroll-container>
+        <div data-scroll-section>
+
+            <div id="subtop-container"></div>
+
+            <main class="subpage-content">
+                <!-- s: section 1 -->
+                <section class="cont1" aria-labelledby="cont1-title">
+                    <div class="container end-spacer">
+                        <div class="section-header">
+                            <h2 id="cont1-title" class="title-md">Our Locations</h2>
+                            <p class="desc">If you have any questions about our products or services,
+                                Please contact us at the address below.</p>
+                        </div>
+
+                        <div class="layout">
+                            <div class="left">
+                                <div class="map-wrap is-loading">
+                                    <iframe id="locationMap" class="map" src="https://www.google.com/maps?q=A505,+3+Godeung-ro,+Sujeong-gu,+Seongnam-si,+Gyeonggi-do,+13105,+Republic+of+Korea&output=embed&hl=en" 
+                                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <div class="map-loader" aria-hidden="true"></div>
+                                </div>
+                            </div>
+
+                            <div class="right">
+                                <button type="button" class="item is-active" data-map="https://www.google.com/maps?q=A505,+3+Godeung-ro,+Sujeong-gu,+Seongnam-si,+Gyeonggi-do,+13105,+Republic+of+Korea&output=embed&hl=en">
+                                    <span class="title"><i class="icon" aria-hidden="true"></i>Headquarters</span>
+                                    <div class="info">
+                                        <p class="address">A505, 3 Godeung-ro, Sujeong-gu, Seongnam-si,
+                                            Gyeonggi-do, 13105, Republic of Korea</p>
+                                        <div class="contact">
+                                            <div class="line">
+                                                <span class="label">Tel</span>
+                                                <a class="value" href="tel:+827074590362">+82-70-7459-0362</a>
+                                            </div>
+                                            <div class="line">
+                                                <span class="label">Email</span>
+                                                <a class="value" href="mailto:contact@genebiotech.co.kr">contact@genebiotech.co.kr</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button type="button" class="item" data-map="https://www.google.com/maps?q=166+Sinwonsa-ro,+Gyeryong-myeon,+Gongju-si,+Chungcheongnam-do,+32619,+Republic+of+Korea&output=embed&hl=en">
+                                    <span class="title"><i class="icon" aria-hidden="true"></i>Factory 1</span>
+                                    <div class="info">
+                                        <p class="address">166 Sinwonsa-ro, Gyeryong-myeon, Gongju-si,
+                                            Chungcheongnam-do, 32619, Republic of Korea</p>
+                                    </div>
+                                </button>
+
+                                <button type="button" class="item" data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.9805863886436!2d126.71340479999999!3d37.3429683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b713e9e2b1369%3A0xa547dfa445a20cbd!2z6rK96riw64-EIOyLnO2dpeyLnCDsmKXqtazsspzshJzroZwxODXrsojquLggMTQ!5e0!3m2!1sen!2sen!4v1765955471796!5m2!1sen!2sen">
+                                    <span class="title"><i class="icon" aria-hidden="true"></i>Factory 2</span>
+                                    <div class="info">
+                                        <p class="address">14, Okgucheonseo-ro 185beon-gil, Siheung-si,
+                                            Gyeonggi-do, 15088, Republic of Korea</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to Top"></button>
+
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Locomotive Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/pages/sub0601.js"></script>
+</body>
+
+</html>

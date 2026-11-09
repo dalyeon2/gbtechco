@@ -1,0 +1,121 @@
+/* 
+---------------------------------------------
+                    Popup
+--------------------------------------------- 
+*/
+/* container */
+#pop {
+    position: relative;
+    margin: 0 auto;
+    width: var(--container-width, 1440px);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.pops,
+.pops * {
+    pointer-events: auto
+}
+
+.popup-dim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .42);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.popup-dim.show {
+    opacity: 1;
+}
+
+.popup-dim[hidden] {
+    display: none;
+}
+
+.pops {
+    position: fixed;
+    z-index: 1002;
+    min-width: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--black-300);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .28);
+}
+
+.pops_con {
+    display: block;
+    width: 100%;
+    background: white;
+}
+
+.pops_con img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pops_footer {
+    padding: 12px 14px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, white, var(--primary-100));
+    border-top: 1px solid var(--black-300);
+}
+
+.pops_footer button {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 1;
+    transition: box-shadow .15s ease, background .2s ease, border-color .2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.pops_footer .pops_reject {
+    background: var(--indigo);
+    color: var(--white);
+    transition: background-color .25s ease, box-shadow .25s ease;
+}
+
+.pops_footer .pops_reject:hover {
+    background: #314362;
+}
+
+.pops_footer .pops_close {
+    background: white;
+    color: var(--indigo);
+    border: 1px solid var(--black-300);
+}
+
+.pops_footer .pops_close:hover {
+    background: var(--primary-100);
+    border-color: var(--black-400);
+}
+
+@media (max-width:768px) {
+    .pops {
+        left: 12px !important;
+        right: 12px !important;
+        top: 54px !important;
+        min-width: unset;
+        width: auto;
+        max-width: unset;
+        border-radius: 14px;
+    }
+
+    .pops_footer {
+        padding: 10px 12px;
+    }
+
+    .pops_footer button {
+        padding: 10px 12px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+}
