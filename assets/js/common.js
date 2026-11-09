@@ -221,18 +221,22 @@ function syncHeaderLogo(style, isAtTop) {
     const $header = $('.main-header');
     if (!$header.length) return;
 
+    const $logo = $('.header-left .logo img');
+    if (!$logo.length) return;
+
     const shouldUseLightLogo = style === 'transparent' || style === 'transparent-dark' || (document.body.dataset.page !== 'main' && isAtTop);
+    const normalSrc = $logo.data('logo-default') || '../../assets/img/common/logo.png';
+    const lightSrc = $logo.data('logo-transparent') || '../../assets/img/common/logo-white.png';
+    const targetSrc = shouldUseLightLogo ? lightSrc : normalSrc;
+
+    if ($logo.attr('src') !== targetSrc) {
+        $logo.attr('src', targetSrc);
+    }
+
     $header.toggleClass('is-logo-light', !!shouldUseLightLogo);
 }
 
 function initSectionHeaderStyles() {
-    if (headerStyleObserver) {
-        headerStyleObserver.disconnect();
-        headerStyleObserver = null;
-    }
-
-    if (!('IntersectionObserver' in window)) return;
-
     const header = document.querySelector('.main-header');
     if (!header) return;
 
@@ -244,17 +248,7 @@ function initSectionHeaderStyles() {
         return null;
     };
 
-    const sections = Array.from(document.querySelectorAll('[data-scroll-section] section'));
-    const trackedSections = sections.filter(sec => !!getStyle(sec));
-    if (!trackedSections.length) return;
-
-    let currentStyle = null;
-
     const applyStyle = (style) => {
-        if (window.__headerManagedByScroll) return;
-        if (currentStyle === style) return;
-        currentStyle = style;
-
         header.classList.remove('is-transparent', 'is-white', 'is-transparent-dark');
         if (style === 'transparent') {
             header.classList.add('is-transparent');
@@ -262,24 +256,25 @@ function initSectionHeaderStyles() {
             header.classList.add('is-white');
         } else if (style === 'transparent-dark') {
             header.classList.add('is-white', 'is-transparent-dark');
-        } else if (!style) {
-            currentStyle = null;
         }
 
         syncHeaderLogo(style, false);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-            .filter(entry => entry.isIntersecting)
-            .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0));
-        if (!visible.length) return;
-        const style = getStyle(visible[0].target);
-        if (style) applyStyle(style);
-    }, { threshold: [0.35, 0.65, 0.9] });
+    const syncScrollStyle = () => {
+        const sections = Array.from(document.querySelectorAll('[data-scroll-section] section'));
+        const tracked = sections
+            .map(section => ({ section, rect: section.getBoundingClientRect() }))
+            .filter(item => item.rect.bottom > 0 && item.rect.top < window.innerHeight)
+            .sort((a, b) => Math.abs(a.rect.top) - Math.abs(b.rect.top));
 
-    trackedSections.forEach(section => observer.observe(section));
-    headerStyleObserver = observer;
+        const active = tracked.length ? getStyle(tracked[0].section) : null;
+        if (active) applyStyle(active);
+    };
+
+    syncScrollStyle();
+    window.addEventListener('scroll', syncScrollStyle, { passive: true });
+    window.addEventListener('resize', syncScrollStyle, { passive: true });
 }
 
 /* ===== Subtabs dropdown (subtop) ===== */
@@ -339,6 +334,30 @@ $(function () {
 
     function $hdr() { return $('.main-header'); }
 
+    function getActiveSectionStyle() {
+        var sections = Array.from(document.querySelectorAll('[data-scroll-section] section'));
+        if (!sections.length) return null;
+
+        var active = sections
+            .map(function (section) {
+                return { section: section, rect: section.getBoundingClientRect() };
+            })
+            .filter(function (entry) {
+                return entry.rect.bottom > 0 && entry.rect.top < window.innerHeight;
+            })
+            .sort(function (a, b) {
+                return Math.abs(a.rect.top) - Math.abs(b.rect.top);
+            })[0];
+
+        if (!active) return null;
+        var section = active.section;
+        if (section.classList.contains('header-white')) return 'white';
+        if (section.classList.contains('header-transparent-dark')) return 'transparent-dark';
+        if (section.classList.contains('header-transparent')) return 'transparent';
+        if (section.dataset.headerStyle) return section.dataset.headerStyle;
+        return null;
+    }
+
     // top show all, scroll menu only
     function setState(y) {
         var atTop = y <= 5;
@@ -369,22 +388,20 @@ $(function () {
         if (atTop) $h.removeClass('is-scroll');
         else $h.addClass('is-scroll');
 
-        // subpages: keep header transparent at top, white after scroll
-        if (!IS_MAIN) {
-            const nextStyle = atTop ? 'transparent' : 'white';
-            if (!$h.hasClass('is-transparent') && nextStyle === 'transparent') {
-                $h.addClass('is-transparent').removeClass('is-white');
-            }
-            if (!$h.hasClass('is-white') && nextStyle === 'white') {
-                $h.removeClass('is-transparent').addClass('is-white');
-            }
-            if (($h.hasClass('is-transparent') && nextStyle === 'white') || ($h.hasClass('is-white') && nextStyle === 'transparent')) {
-                $h.toggleClass('is-transparent', nextStyle === 'transparent');
-                $h.toggleClass('is-white', nextStyle === 'white');
-            }
-
-            syncHeaderLogo(nextStyle, atTop);
+        var nextStyle = null;
+        if (IS_MAIN) {
+            nextStyle = getActiveSectionStyle() || (atTop ? 'transparent' : 'white');
+        } else {
+            nextStyle = atTop ? 'transparent' : 'white';
         }
+
+        $h.removeClass('is-transparent is-white is-transparent-dark');
+
+        if (nextStyle === 'transparent') $h.addClass('is-transparent');
+        else if (nextStyle === 'white') $h.addClass('is-white');
+        else if (nextStyle === 'transparent-dark') $h.addClass('is-white is-transparent-dark');
+
+        syncHeaderLogo(nextStyle, atTop);
     }
 
     // scroll down hide, scroll up show

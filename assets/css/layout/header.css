@@ -75,17 +75,18 @@ body:not([data-page="main"]) .main-header {
     display: block;
     opacity: 1;
     filter: none;
-    transition: filter 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .main-header.is-transparent .header-left .logo img,
 .main-header.is-transparent-dark .header-left .logo img,
 .main-header.is-logo-light .header-left .logo img,
-body:not([data-page="main"]) .main-header .header-left .logo img {
-    filter: brightness(0) invert(1);
+body:not([data-page="main"]) .main-header .header-left .logo img,
+.main-header.is-white.is-transparent-dark .header-left .logo img {
+    filter: none;
 }
 
-.main-header.is-white .header-left .logo img,
+.main-header.is-white:not(.is-transparent-dark):not(.is-logo-light) .header-left .logo img,
 .main-header:not(.is-transparent):not(.is-transparent-dark):not(.is-logo-light) .header-left .logo img {
     filter: none;
 }
